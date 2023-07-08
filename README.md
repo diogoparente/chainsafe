@@ -1,6 +1,6 @@
-### Public Holidays - React Assignment Implement a calendar app that shows all the public holidays of that year, the application should
+### Public Holidays
 
-meet the below requirements:
+React Assignment Implement a calendar app that shows all the public holidays of that year, the application should meet the below requirements:
 
 - React + Typescript App
 - Use any calendar API for real-time data (example: \*\*\*\*https://www.openholidaysapi.org/en/).
