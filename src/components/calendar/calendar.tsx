@@ -1,5 +1,6 @@
 import React from "react";
 import { useHolidaysApi } from "@/hooks/use-holidays-api";
+import { Spinner } from "../spinner";
 
 function toSentenceCase(value: string) {
   const result = value.replace(/_/g, " ").toLowerCase();
@@ -12,14 +13,17 @@ const Calendar: React.FC = () => {
   return (
     <div className="flex justify-center mt-8">
       {isFetching ? (
-        <div>Fetching holidays...</div>
+        <div className="flex justify-center items-center">
+          <div className="mr-2">Fetching holidays</div>
+          <Spinner />
+        </div>
       ) : holidays && holidays.length > 0 ? (
         <div className="flex flex-col">
           <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
               <div className="overflow-hidden">
                 <table className="min-w-full text-left text-sm font-light divide-y divide-gray-200 sm:table">
-                  <thead className="border-b font-medium dark:border-neutral-500">
+                  <thead className="border-b font-medium dark:border-neutral-500 text-slate-600">
                     <tr>
                       <th scope="col" className="px-6 py-4 sm:table-cell">
                         Date
