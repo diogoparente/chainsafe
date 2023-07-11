@@ -1,5 +1,5 @@
 import React from "react";
-import { useHolidaysApi } from "@/hooks/use-holidays-api";
+import { useHolidays } from "@/hooks/use-holidays";
 import { Spinner } from "../spinner";
 
 function toSentenceCase(value: string) {
@@ -8,7 +8,7 @@ function toSentenceCase(value: string) {
 }
 
 const Calendar: React.FC = () => {
-  const { holidays, isFetching } = useHolidaysApi();
+  const { holidays, isFetching } = useHolidays();
 
   return (
     <div className="flex justify-center mt-8">

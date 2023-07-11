@@ -1,5 +1,5 @@
 import { render, waitFor } from "@testing-library/react";
-import { useHolidaysApi } from "./use-holidays-api";
+import { useHolidays } from "./use-holidays";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
 import { AppProvider } from "@/context/app-context";
@@ -30,12 +30,12 @@ const server = setupServer(
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
-describe("useHolidaysApi hook", () => {
+describe("useHolidays hook", () => {
   it("should fetch holidays for given country, year, and month", async () => {
     let hook;
 
     const TestComponent = () => {
-      hook = useHolidaysApi();
+      hook = useHolidays();
       return null;
     };
 
@@ -47,7 +47,6 @@ describe("useHolidaysApi hook", () => {
 
     await waitFor(() => expect(hook!.isFetching).toBe(false));
 
-    expect(hook!.isFetching).toBe(false);
     expect(hook!.holidays).toEqual([holidays[0]]);
   });
 });

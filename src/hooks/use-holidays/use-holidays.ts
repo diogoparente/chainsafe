@@ -13,6 +13,7 @@ type Holiday = {
 
 const API_NINJAS_KEY = process.env.API_NINJAS_KEY;
 const API_NINJAS_URL = process.env.API_NINJAS_URL;
+
 function filterByMonth({
   month,
   holidays,
@@ -32,7 +33,7 @@ function filterByMonth({
   return filteredHolidays;
 }
 
-const useHolidaysApi = () => {
+const useHolidays = () => {
   const [_error, setError] = useState(false);
   const [isFetching, setIsFetching] = useState(false);
   const [holidays, setHolidays] = useState<Holiday[] | null>(null);
@@ -70,4 +71,4 @@ const useHolidaysApi = () => {
   return { holidays, isFetching };
 };
 
-export { useHolidaysApi };
+export { useHolidays };
